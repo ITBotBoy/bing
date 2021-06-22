@@ -22,6 +22,7 @@ export default function () {
 
     const queryList = (nextDate, isMobile) => {
         updateLoading(true);
+        nextDate=String(nextDate).substr(0,6)
         axios(`/api/list?date=${nextDate}&count=10`)
             .then(({data}) => {
                 let count = 0;

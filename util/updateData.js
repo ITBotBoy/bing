@@ -40,7 +40,7 @@ const getData = async () => {
 const updateData = async (init) => {
     const imgArr = await getData();
     const {data} = await axios('http://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=8&nc=1553500237029&pid=hp&mkt=zh-CN');
-    const now =moment();
+    const now = moment();
     const nowYMD = now.format('YYYY-MM-DD 00:00:00');
     const tomorrow = moment(nowYMD).add(1, 'd');
     const nowStr = now.format('YYYY-MM-DD HH:mm:ss');
