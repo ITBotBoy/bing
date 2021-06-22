@@ -4,7 +4,9 @@ const jsonfile = require('jsonfile');
 
 const getData = async () => {
     let {imgArr} = global;
+
     if (!imgArr) {
+        const fileName=moment().format("YYYYMM")
         const {imgs} = await jsonfile.readFile('bing_data/cacheData.json')
             .catch(() => ({imgs: []}))
 
@@ -14,7 +16,7 @@ const getData = async () => {
                 target[key] = val;
                 if (!isNaN(key / 1)) {
                     const nowStr = moment().format('YYYY-MM-DD HH:mm:ss');
-                    jsonfile.writeFile('bing_data/' + moment().format('YYYYMMDD') + '.json', {imgs: target, nowStr});
+                    jsonfile.writeFile('bing_data/' + fileName + '.json', {imgs: target, nowStr});
                     // , {spaces: 4, EOL: '\r\n'}
                     jsonfile.writeFile('bing_data/cacheData.json', {imgs: target, date: nowStr});
                 }
@@ -38,7 +40,7 @@ const getData = async () => {
 const updateData = async (init) => {
     const imgArr = await getData();
     const {data} = await axios('http://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=8&nc=1553500237029&pid=hp&mkt=zh-CN');
-    const now = moment();
+    const now =moment();
     const nowYMD = now.format('YYYY-MM-DD 00:00:00');
     const tomorrow = moment(nowYMD).add(1, 'd');
     const nowStr = now.format('YYYY-MM-DD HH:mm:ss');

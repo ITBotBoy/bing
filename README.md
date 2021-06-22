@@ -1,5 +1,7 @@
 # 必应壁纸
 
+可以通过访问 http://bing.renserve.com 预览。
+
 ### 一些可有可无的说明
 
 该项目基于 next.js 开发，服务端渲染 react 项目。
