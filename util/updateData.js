@@ -9,16 +9,17 @@ const getData = async () => {
         const fileName=moment().format("YYYYMM")
         const {imgs} = await jsonfile.readFile('bing_data/cacheData.json')
             .catch(() => ({imgs: []}))
-
         imgArr = new Proxy(imgs.sort((a, b) => a.date - b.date), {
             get: (target, key) => (target[key] || target.find(({date}) => `${date}` === key) || undefined),
             set: (target, key, val) => {
                 target[key] = val;
                 if (!isNaN(key / 1)) {
                     const nowStr = moment().format('YYYY-MM-DD HH:mm:ss');
-                    jsonfile.writeFile('bing_data/' + fileName + '.json', {imgs: target, nowStr});
-                    // , {spaces: 4, EOL: '\r\n'}
-                    jsonfile.writeFile('bing_data/cacheData.json', {imgs: target, date: nowStr});
+                    const monthData=target.filter(i=>String(i.date).includes(fileName))
+                    //数据每月保存
+                    jsonfile.writeFileSync('bing_data/' + fileName + '.json', {imgs: monthData, nowStr});
+                    // , {spaces: 4, EOL: '\r\n'}，内存会变大，文件分割
+                    jsonfile.writeFileSync('bing_data/cacheData.json', {imgs: target, date: nowStr});
                 }
                 // 表示成功
                 return true;

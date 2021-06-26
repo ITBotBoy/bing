@@ -4,6 +4,7 @@
   "/about": "pages/about.js",
   "/api/hello": "pages/api/hello.js",
   "/api/list": "pages/api/list.js",
+  "/api/sort": "pages/api/sort.js",
   "/": "pages/index.html",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",

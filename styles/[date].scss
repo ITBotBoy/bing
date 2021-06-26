@@ -78,8 +78,9 @@
 
     .img-info {
       position: absolute;
-      top: 50px;
-      left: 12vw;
+      top: 4vw;
+      //left: 12vw;
+      left: 8vw;
       color: #fff;
       width: 17vw;
       min-width: 240px;
@@ -147,13 +148,14 @@
       }
 
       .icon-list {
-        padding-left: 20px;
+        //padding-left: 10px;
 
         .iconfont {
           display: inline-block;
           color: #fff;
           line-height: 50px;
           font-size: 20px;
+            padding: 0 5px;
           margin: 0 15px;
           cursor: pointer;
         }

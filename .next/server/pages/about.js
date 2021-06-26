@@ -178,6 +178,8 @@ function about({
           children: "https://github.com/jsososo/Bing"
         })]
       }), /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("p", {
+        children: "\u5FEB\u6377\u952E\u76EE\u524D\u6709\u65B9\u5411\u952E\uFF08\u4E0A/\u4E0B\u4E00\u5F20\u56FE\u7247\uFF09\u548C\u7A7A\u683C\u952E\uFF08\u968F\u673A\u4E00\u5F20\u56FE\u7247\uFF09"
+      }), /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("p", {
         children: /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("div", {})
       })]
     })]
