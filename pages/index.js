@@ -115,7 +115,7 @@ export default function() {
                 return;
             }
             setShowTop(document.documentElement.scrollTop > 700);
-            if (document.documentElement.clientHeight + document.documentElement.scrollTop + 50 > $page.current.clientHeight) {
+            if (document.documentElement.clientHeight + document.documentElement.scrollTop + 500 > $page.current.clientHeight) {
                 queryList(nextDate, isMobile);
             }
         }
