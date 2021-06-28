@@ -106,28 +106,50 @@ module.exports = __webpack_require__("bjc6");
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+const moment = __webpack_require__("wy2R");
+
 /* harmony default export */ __webpack_exports__["default"] = ((req, res) => {
   let {
     date = 0,
     count = 0
-  } = req.query;
+  } = req.query,
+      monthData;
   const {
     imgArr
-  } = global;
+  } = global; //  28
 
-  if (date) {//今天距离月初的天数
-    // count=new Date(date.slice(4), date.slice(2), 0).getDate()
-  }
+  /*if(Number(date)){
+      console.log(date)
+      date=String(date).slice(0,6)
+      monthData=imgArr.filter(i=>String(i.date).includes(date))
+      //今天距离月初的天数
+      // count=new Date(date.slice(4), date.slice(2), 0).getDate()
+  }else {
+      const now = moment().format('YYYYMM');
+      monthData=imgArr.filter(i=>String(i.date).includes(now))
+      if(monthData.length<28){
+          const last=moment().subtract(1, 'month').format('YYYYMM')
+          const lastMonthData=imgArr.filter(i=>String(i.date).includes(last))
+          console.log(imgArr.length,'lastMonthData')
+          monthData=monthData.concat(lastMonthData)
+      }
+  }*/
 
   let startIndex = imgArr.findIndex(({
     date: d
   }) => date === `${d}`);
-  startIndex < 0 && (startIndex = imgArr.length - 1); // console.log(startIndex - (count-1),'startIndex - (count-1))')
-
+  startIndex < 0 && (startIndex = imgArr.length - 1);
   res.json({
     data: [...imgArr.slice(Math.max(0, startIndex - (count - 1)), startIndex + 1)].reverse()
   });
 });
+
+/***/ }),
+
+/***/ "wy2R":
+/***/ (function(module, exports) {
+
+module.exports = require("moment");
 
 /***/ })
 

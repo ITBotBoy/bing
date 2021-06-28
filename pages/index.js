@@ -78,8 +78,7 @@ export default function() {
     }
     const queryList = (nextDate, isMobile) => {
         updateLoading(true);
-        // nextDate=String(nextDate).substr(0,6)
-        axios(`/api/list?date=${nextDate}&count=28`)
+        axios(`/api/list?date=${nextDate}&count=10`)
             .then(({data}) => {
                 let count = 0;
                 const maxCount = isMobile ? 0 : 2;
@@ -87,9 +86,9 @@ export default function() {
                     let span = 1;
                     //0 1 2
                     (count < maxCount) && maxCount && (span = Math.ceil(Math.random() * 2));
-                    // 10-i,第8张换span  8 16 24
-                    !(i%8) && maxCount && (span = 2);
-                    // console.log(maxCount, span, isMobile);
+                    // 2,第9张换span  ;  1 最后一张span ;
+                    ((maxCount-count) === (10 - i)) && maxCount && (span = 2);
+                    // count=1 ; count=2 ;
                     span === 2 && (count += 1);
                     item.style = {
                         gridColumnStart: `span ${span}`,
@@ -103,25 +102,25 @@ export default function() {
                 !last.prev && setEmpty(true);
                 updateNextDate(last.prev);
                 updateLoading(false);
-
             })
     }
 
     const $page = useRef();
 
     useEffect((e) => {
-        window.onscroll = () => {
+        window.onscroll = throttle(() => {
             if (loading || isEmpty) {
                 return;
             }
             setShowTop(document.documentElement.scrollTop > 700);
-            if (document.documentElement.clientHeight + document.documentElement.scrollTop + 500 > $page.current.clientHeight) {
+            let scrollTop=document.documentElement.scrollTop;
+            let clientHeight=document.documentElement.clientHeight;
+            let pageHeight=$page.current.clientHeight;
+            if (scrollTop && (clientHeight + scrollTop + 200 >pageHeight)) {
                 queryList(nextDate, isMobile);
             }
-        }
-        setTimeout(() => {
-            window.onscroll();
-        })
+        },100)
+        window.onscroll();
     }, [nextDate, loading]);
 
     useEffect(() => {
@@ -140,7 +139,7 @@ export default function() {
             <Head></Head>
             <div className="img-list"
                  style={{
-                     gridTemplateRows: isMobile ? `repeat(${list.length}, 75vw)` : `repeat(${Math.ceil(list.length / 28) * 4}, 19vw)`
+                     gridTemplateRows: isMobile ? `repeat(${list.length}, 75vw)` : `repeat(${parseInt(list.length / 10) * 4}, 19vw)`
                  }}>
                 {
                     list.map((img) => (

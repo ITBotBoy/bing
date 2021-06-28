@@ -9,6 +9,7 @@ const getData = async () => {
         const fileName=moment().format("YYYYMM")
         const {imgs} = await jsonfile.readFile('bing_data/cacheData.json')
             .catch(() => ({imgs: []}))
+        console.log(imgs && imgs.length,'imgs')
         imgArr = new Proxy(imgs.sort((a, b) => a.date - b.date), {
             get: (target, key) => (target[key] || target.find(({date}) => `${date}` === key) || undefined),
             set: (target, key, val) => {
