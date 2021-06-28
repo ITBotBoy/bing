@@ -116,7 +116,7 @@ export default function() {
             let scrollTop=document.documentElement.scrollTop;
             let clientHeight=document.documentElement.clientHeight;
             let pageHeight=$page.current.clientHeight;
-            if (scrollTop && (clientHeight + scrollTop + 200 >pageHeight)) {
+            if (scrollTop && (clientHeight + scrollTop + 80 >pageHeight)) {
                 queryList(nextDate, isMobile);
             }
         },100)
