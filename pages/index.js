@@ -116,9 +116,10 @@ export default function() {
             let scrollTop=document.documentElement.scrollTop;
             let clientHeight=document.documentElement.clientHeight;
             let pageHeight=$page.current.clientHeight;
-            if (scrollTop && (clientHeight + scrollTop + 120 >pageHeight)) {
+            if (scrollTop && (clientHeight + scrollTop + 150 >pageHeight)) {
                 queryList(nextDate, isMobile);
             }
+            console.log(clientHeight + scrollTop,pageHeight)
         },100)
         window.onscroll();
     }, [nextDate, loading]);
@@ -133,6 +134,10 @@ export default function() {
                 setSortInfo(res.data)
             })
         queryList(nextDate, isMobile)
+        process.env.NODE_ENV === 'development' && setTimeout(()=>{
+            const VConsole = require('vconsole');
+            new VConsole();
+        })
     }, [])
     return (
         <div className={`index-page ${isMobile && 'mobile-page'}`} ref={$page}>
