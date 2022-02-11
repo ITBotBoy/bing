@@ -5,8 +5,8 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/1mg7Dibl61_S92DTOOHsW/_buildManifest.js",
-    "static/1mg7Dibl61_S92DTOOHsW/_ssgManifest.js"
+    "static/B2plN7B1YBXipdtyJW4Ru/_buildManifest.js",
+    "static/B2plN7B1YBXipdtyJW4Ru/_ssgManifest.js"
   ],
   "pages": {
     "/": [
@@ -16,9 +16,9 @@
       "static/chunks/75fc9c18.1c4adbd2984e23e1808a.js",
       "static/chunks/commons.93f1427300809a225451.js",
       "static/chunks/4cf7ccd21ebcef6593747e350592597b6acdb4fa.8203e1a2c5d4691ef385.js",
-      "static/css/styles.de0564b0.chunk.css",
+      "static/css/styles.eedcede9.chunk.css",
       "static/chunks/styles.94f7c6beb91212826f2f.js",
-      "static/chunks/pages/index-7974531f665cf60b9e32.js"
+      "static/chunks/pages/index-7177497f5f3e1168ea33.js"
     ],
     "/[date]": [
       "static/chunks/main-1407c3fa00f55e41d533.js",
@@ -28,9 +28,9 @@
       "static/chunks/commons.93f1427300809a225451.js",
       "static/chunks/48fa596a8686b54800729f3ee5086a70ab1567a4.7f832fa2b34206bcf388.js",
       "static/chunks/4cf7ccd21ebcef6593747e350592597b6acdb4fa.8203e1a2c5d4691ef385.js",
-      "static/css/styles.de0564b0.chunk.css",
+      "static/css/styles.eedcede9.chunk.css",
       "static/chunks/styles.94f7c6beb91212826f2f.js",
-      "static/chunks/pages/[date]-f472c7fd67317247e336.js"
+      "static/chunks/pages/[date]-a87cd2c781d91328a093.js"
     ],
     "/_app": [
       "static/chunks/main-1407c3fa00f55e41d533.js",
@@ -40,7 +40,7 @@
       "static/chunks/f34ad480.19830e50427f38e47434.js",
       "static/chunks/commons.93f1427300809a225451.js",
       "static/chunks/48fa596a8686b54800729f3ee5086a70ab1567a4.7f832fa2b34206bcf388.js",
-      "static/css/styles.de0564b0.chunk.css",
+      "static/css/styles.eedcede9.chunk.css",
       "static/chunks/styles.94f7c6beb91212826f2f.js",
       "static/chunks/pages/_app-ea04fa8477a1503c1d8f.js"
     ],
@@ -57,7 +57,7 @@
       "static/chunks/framework.cef9e550fd22d8dd9f7c.js",
       "static/chunks/commons.93f1427300809a225451.js",
       "static/chunks/48fa596a8686b54800729f3ee5086a70ab1567a4.7f832fa2b34206bcf388.js",
-      "static/css/styles.de0564b0.chunk.css",
+      "static/css/styles.eedcede9.chunk.css",
       "static/chunks/styles.94f7c6beb91212826f2f.js",
       "static/chunks/pages/about-1c2d14bee67aa7de4685.js"
     ]
