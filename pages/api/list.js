@@ -1,7 +1,7 @@
 const moment = require('moment');
 const jsonfile = require('jsonfile')
 const sortBy=require('lodash/sortBy')
-export default async (req, res) => {
+const distractList = async (req, res) => {
   let { date = 0,count = 0 ,type = 1} = req.query,monthData;
   //默认列表 type1为列表
   if(!date) return res.json({data:[]})
@@ -42,4 +42,14 @@ export default async (req, res) => {
   res.json({
     data: sortBy(data,'date').slice(Math.max(0, startIndex - (count-1)), startIndex + 1).reverse()
   })
+}
+
+export default (req, res) => {
+    let { date = 0,count = 0 } = req.query,monthData;
+    const { imgArr } = global;
+    let startIndex = imgArr.findIndex(({ date: d }) => date === `${d}`);
+    (startIndex < 0) && (startIndex = imgArr.length-1);
+    res.json({
+        data: [...imgArr.slice(Math.max(0, startIndex - (count-1)), startIndex + 1)].reverse()
+    })
 }

@@ -118,7 +118,7 @@ export default function() {
             // 触发滚动高度
             let triggerHeight=Math.ceil(clientHeight * 0.25) + 40;
             let pageHeight=$page.current.clientHeight;
-            console.log(triggerHeight,'triggerHeight')
+            // console.log(triggerHeight,'triggerHeight')
             // 滚动条20px
             if (scrollTop && (clientHeight + scrollTop + triggerHeight >pageHeight)) {
                 queryList(nextDate, isMobile);
