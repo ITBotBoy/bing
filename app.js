@@ -23,7 +23,7 @@ app.prepare().then(() => {
   }).listen(port, (err) => {
     if (err) throw err;
     updateData(true);
-      // initData()
+      initData()
     //爬取
     console.log(`> Ready on http://localhost:${port}`)
   })

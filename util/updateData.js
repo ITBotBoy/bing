@@ -60,7 +60,13 @@ const updateData = async (init) => {
     try {
         const res = await axios('http://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=8&nc=1553500237029&pid=hp&mkt=zh-CN');
         data=res.data
-    }catch {}
+    }catch {
+        // 12小时再次抓取
+        setTimeout(() => {
+            updateData()
+        }, 1000 * 60 * 60 * 12)
+        return false
+    }
     const now = moment();
     const nowYMD = now.format('YYYY-MM-DD 00:00:00');
     const tomorrow = moment(nowYMD).add(1, 'd');
