@@ -2,5 +2,12 @@
 
 export default (req, res) => {
   res.statusCode = 200
-  res.json({ name: 'John Doe' })
+  res.json({
+      code:0,
+      message: 'Hello World!' ,
+      author:'renserve',
+      home:'https://renserve.com',
+      github:'https://github.com/renserve',
+
+  })
 }

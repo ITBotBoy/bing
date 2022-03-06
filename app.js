@@ -1,4 +1,4 @@
-const updateData = require('./util/updateData');
+const {updateData,initData} = require('./util/updateData');
 const {createServer} = require('http');
 const {parse} = require('url');
 const next = require('next');
@@ -23,6 +23,7 @@ app.prepare().then(() => {
   }).listen(port, (err) => {
     if (err) throw err;
     updateData(true);
+      // initData()
     //爬取
     console.log(`> Ready on http://localhost:${port}`)
   })

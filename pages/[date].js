@@ -14,8 +14,10 @@ import processHTML from "next/dist/next-server/lib/post-process";
 // import axios from "axios";
 // import throttle from "lodash/throttle";
 export async function getServerSideProps(context) {
+    // 维护一份文件索引length表
     const {imgArr, tomorrow} = global;
     const {date} = context.query;
+    // 抽取随机数进行随机，接口返回最大数量的随机数
     let key = date;
     const minDate=minBy(imgArr,'date')
     const maxDate=maxBy(imgArr,'date')

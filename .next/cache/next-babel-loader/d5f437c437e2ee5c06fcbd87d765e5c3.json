@@ -1,0 +1,1 @@
+{"ast":null,"code":"// Next.js API route support: https://nextjs.org/docs/api-routes/introduction\nexport default ((req, res) => {\n  res.statusCode = 200;\n  res.json({\n    code: 0,\n    message: 'Hello World!',\n    author: 'renserve',\n    home: 'https://renserve.com',\n    github: 'https://github.com/renserve'\n  });\n});","map":null,"metadata":{},"sourceType":"module"}

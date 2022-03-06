@@ -6,13 +6,12 @@ const getData = async () => {
     let {imgArr} = global;
 
     if (!imgArr) {
-        const fileName=moment().format("YYYYMM")
-        const {imgs} = await jsonfile.readFile('bing_data/cacheData.json')
-            .catch(() => ({imgs: []}))
-        console.log(imgs && imgs.length,'imgs')
+        const {imgs} = await jsonfile.readFileSync('bing_data/cacheData.json')
+        // 请求每个月的数据放进缓存，进行内存限制
         imgArr = new Proxy(imgs.sort((a, b) => a.date - b.date), {
             get: (target, key) => (target[key] || target.find(({date}) => `${date}` === key) || undefined),
             set: (target, key, val) => {
+                const fileName=moment().format("YYYYMM")
                 target[key] = val;
                 if (!isNaN(key / 1)) {
                     const nowStr = moment().format('YYYY-MM-DD HH:mm:ss');
@@ -38,7 +37,23 @@ const getData = async () => {
 
     return imgArr
 }
-
+const initData =  async () => {
+    const cacheData=[]
+    const nowStr = moment().format('YYYY-MM-DD HH:mm:ss');
+    const {imgs} = await jsonfile.readFileSync('bing_data/cacheData.json')
+    imgs.sort((a, b) => a.date - b.date).map((item)=>{
+        const month=String(item.date).slice(0,6)
+        const index = cacheData.findIndex(data=>data && data[0]===month)
+        if(index>-1){
+            cacheData[index][1].push(item)
+        }else {
+            cacheData.push([month,[item]])
+        }
+    })
+    cacheData.map(async ([key,value])=>{
+        await jsonfile.writeFileSync('bing_data/' + key + '.json', {imgs: value, nowStr});
+    })
+}
 const updateData = async (init) => {
     const imgArr = await getData();
     const {data} = await axios('http://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=8&nc=1553500237029&pid=hp&mkt=zh-CN');
@@ -71,7 +86,6 @@ const updateData = async (init) => {
                 }
 
                 imgArr.push(newImg);
-                timeout = tomorrow - now + 5000;
             }
         });
 
@@ -80,4 +94,7 @@ const updateData = async (init) => {
     }, timeout)
 }
 
-module.exports = updateData;
+module.exports = {
+    initData,
+    updateData
+};

@@ -2,8 +2,9 @@
   "name": "bing-next",
   "version": "0.1.0",
   "private": true,
+  "main": "app/app.js",
   "scripts": {
-    "dev": "node app dev",
+    "dev": "node app dev --inspect",
     "build": "next build",
     "start": "node app"
   },
