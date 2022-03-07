@@ -30,9 +30,6 @@ export default function about({img = {}}) {
                 <p> 开源项目链接 <a rel="external nofollow noopener noreferrer" target="_blank" href="https://github.com/jsososo/Bing">https://github.com/jsososo/Bing</a>
                 </p>
                 <p>快捷键目前有方向键（上/下一张图片）和空格键（随机一张图片）</p>
-                <p>
-                    <div></div>
-                </p>
             </div>
         </div>
     )

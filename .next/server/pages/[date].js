@@ -209,6 +209,7 @@ module.exports = __webpack_require__("S6MW");
 
 "use strict";
 /* unused harmony export getServerSideProps */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Header; });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("F5FC");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("xnum");
@@ -219,18 +220,20 @@ module.exports = __webpack_require__("S6MW");
 async function getServerSideProps(context) {
   const {
     time,
-    title,
-    description
-  } = context.query;
+    title
+  } = context && context.query || {};
   return {
     props: {
       time,
-      title,
-      description
+      title
     }
   };
 }
-/* harmony default export */ __webpack_exports__["a"] = (function () {
+function Header(content) {
+  const {
+    time,
+    title
+  } = {};
   return /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxs"])(next_head__WEBPACK_IMPORTED_MODULE_1___default.a, {
     children: [/*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("link", {
       rel: "stylesheet",
@@ -239,9 +242,11 @@ async function getServerSideProps(context) {
       rel: "shortcut icon",
       type: "image/png",
       href: "favicon.png"
+    }), /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("title", {
+      children: title ? time ? time + ' | ' : '' + title : '精美壁纸 | 必应'
     })]
   });
-});
+}
 
 /***/ }),
 
