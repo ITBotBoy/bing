@@ -101,6 +101,47 @@ module.exports = __webpack_require__("Juyh");
 
 /***/ }),
 
+/***/ "2pyn":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export getServerSideProps */
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("F5FC");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("xnum");
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+async function getServerSideProps(context) {
+  const {
+    time,
+    title,
+    description
+  } = context.query;
+  return {
+    props: {
+      time,
+      title,
+      description
+    }
+  };
+}
+/* harmony default export */ __webpack_exports__["a"] = (function () {
+  return /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxs"])(next_head__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    children: [/*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("link", {
+      rel: "stylesheet",
+      href: "//at.alicdn.com/t/font_2614575_0k9272p6cclf.css"
+    }), /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("link", {
+      rel: "shortcut icon",
+      type: "image/png",
+      href: "favicon.png"
+    })]
+  });
+});
+
+/***/ }),
+
 /***/ "4Q3z":
 /***/ (function(module, exports) {
 
@@ -128,6 +169,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _styles_about_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("NFVX");
 /* harmony import */ var _styles_about_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_styles_about_scss__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _components_Head__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("2pyn");
+
 
 
 
@@ -192,6 +235,13 @@ function about({
 /***/ (function(module, exports) {
 
 
+
+/***/ }),
+
+/***/ "xnum":
+/***/ (function(module, exports) {
+
+module.exports = require("next/head");
 
 /***/ })
 

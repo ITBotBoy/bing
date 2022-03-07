@@ -145,7 +145,6 @@ export default function() {
     }, [])
     return (
         <div className={`index-page ${isMobile && 'mobile-page'}`} ref={$page}>
-            <Head></Head>
             <div className="img-list"
                  style={{
                      gridTemplateRows: isMobile ? `repeat(${list.length}, 75vw)` : `repeat(${parseInt(list.length / 10) * 4}, 19vw)`

@@ -1,5 +1,6 @@
 import {useRouter} from "next/router";
 import '../styles/about.scss';
+import Head from "../components/Head";
 
 
 export async function getServerSideProps(context) {

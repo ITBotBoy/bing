@@ -139,7 +139,6 @@ export default function date({minDate,maxDate,img = {}, timeout, nextKey}) {
 
     return img.date ? (
         <Spin spinning={loading} size="large">
-            <Head></Head>
             <div className={`detail-page ${isMobile && 'mobile-mode'}`} onMouseMove={onMouseMove}>
                 <img className="loading-img" ref={loadingImg}
                      src={`//cn.bing.com${img.urlbase}_${isMobile ? '768x1280' : '1920x1080'}.jpg`}
@@ -177,7 +176,7 @@ export default function date({minDate,maxDate,img = {}, timeout, nextKey}) {
                     <div className={`bottom-info ${showBottom && 'actived'}`}>
                         <div className="icon-list">
                             <a href="/" className="iconfont icon-bing"/>
-                            <div className={(likeList.includes(img.date)?'icon-like-fill':'icon-xihuan')+' iconfont'} onClick={() => throttleLikeFun(img.date)}/>)
+                            <div className={(likeList.includes(img.date)?'icon-like-fill':'icon-xihuan')+' iconfont'} onClick={() => throttleLikeFun(img.date)}/>
                             <div className="iconfont icon-download" onClick={() => setDownDialogVisible(true)}/>
                             <a href="/random" className="iconfont icon-touzi"/>
                             <a href="/about" className="iconfont icon-about"/>
