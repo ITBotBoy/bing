@@ -38,14 +38,18 @@ const getData = async () => {
     return imgArr
 }
 const initData =  async () => {
-    const cacheData=[]
+    let cacheData=[]
     const nowStr = moment().format('YYYY-MM-DD HH:mm:ss');
     const {imgs} = await jsonfile.readFileSync('bing_data/cacheData.json')
     imgs.sort((a, b) => a.date - b.date).map((item)=>{
         const month=String(item.date).slice(0,6)
         const index = cacheData.findIndex(data=>data && data[0]===month)
         if(index>-1){
-            cacheData[index][1].push(item)
+            if(cacheData[index]){
+                cacheData[index][1].push(item)
+            }else {
+                cacheData.push([month,[item]])
+            }
         }else {
             cacheData.push([month,[item]])
         }
